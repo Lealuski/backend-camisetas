@@ -26,9 +26,10 @@ export class UserService {
         const newu = new UserEntity();
         newu.name = newUser.name;
         newu.email = newUser.email;
-        newu.identification = newUser.identification;
+        newu.password = newUser.password;
         newu.role = newUser.role;
         newu.state = newUser.state;
+        newu.birthdate = newUser.birthdate;
         return await this.userRepo.save(newu);
     }
 
@@ -36,9 +37,10 @@ export class UserService {
         const userUpdate: UserEntity = await this.userRepo.findOneBy({id:id});
         userUpdate.name = modifiedUser.name;
         userUpdate.email = modifiedUser.email;
-        userUpdate.identification = modifiedUser.identification;
+        userUpdate.password = modifiedUser.password;
         userUpdate.role = modifiedUser.role;
         userUpdate.state = modifiedUser.state;
+        userUpdate.birthdate = modifiedUser.birthdate;
         return await this.userRepo.save(userUpdate);
     }
 

@@ -12,12 +12,15 @@ export class UserEntity {
     email: string;
 
     @Column()
-    identification: string;
-
-    @Column()
     role: string;
 
     @Column()
     state: string;
+
+    @Column()
+    password: string;
+
+    @Column()
+    birthdate: Date;
 
 }
