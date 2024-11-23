@@ -1,0 +1,25 @@
+[
+    {
+        "name": "Print Prueba 1",
+        "state": "active",
+        "description": "Primera prueba",
+        "author_id": 3,
+        "theme_id": 1
+    }
+    ,
+    {
+        "name": "Print Prueba 2",
+        "state": "active",
+        "description": "Segunda prueba",
+        "author_id": 3,
+        "theme_id": 2
+    }
+    ,
+    {
+        "name": "Print Prueba 3",
+        "state": "active",
+        "description": "Segunda prueba",
+        "author_id": 3,
+        "theme_id": 3
+    }
+]

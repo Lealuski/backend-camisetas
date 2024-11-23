@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Red",
+        "hexa_rgb": "f10909"
+    }
+    ,
+    {
+        "name": "Blue",
+        "hexa_rgb": "0918f1"
+    }
+    ,
+    {
+        "name": "Green",
+        "hexa_rgb": "09f10a"
+    }
+]

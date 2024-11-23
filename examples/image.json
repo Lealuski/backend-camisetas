@@ -1,0 +1,22 @@
+[
+    {
+        "file_url": "https://img.freepik.com/vector-gratis/futbol-cesped-sobre-fondo-transparente_1308-75394.jpg?semt=ais_hybrid",
+        "location": "FRONT",
+        "sales_number": "0",
+        "print_id": 1
+    }
+    ,
+    {
+        "file_url": "https://e7.pngegg.com/pngimages/781/377/png-clipart-football-player-sport-football-icon-sports-equipment-fictional-character-thumbnail.png",
+        "location": "BACK",
+        "sales_number": "0",
+        "print_id": 1
+    }
+    ,
+    {
+        "file_url": "https://i.pinimg.com/originals/c9/dc/6d/c9dc6d4be2a51b51f2d70c9d7b48101a.jpg",
+        "location": "SHOULDERS",
+        "sales_number": "0",
+        "print_id": 1
+    }
+]

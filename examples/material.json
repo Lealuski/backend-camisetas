@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Algodon",
+        "price": 25000
+    }
+    ,
+    {
+        "name": "Terciopelo",
+        "price": 30000
+    }
+    ,
+    {
+        "name": "Seda",
+        "price": 35000
+    }
+]
