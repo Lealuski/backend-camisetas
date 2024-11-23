@@ -20,6 +20,9 @@ export class ImageService {
         return await this.imageRepo.find({
             relations: {
                 print: true,
+                back_print_orders: true,
+                front_print_orders: true,
+                shoulders_print_orders: true,
             }
         });
     }
@@ -29,6 +32,9 @@ export class ImageService {
             where: { id:idImage },
             relations: {
                 print: true,
+                back_print_orders: true,
+                front_print_orders: true,
+                shoulders_print_orders: true,
             }
         });
     }

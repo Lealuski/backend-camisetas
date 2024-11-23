@@ -13,12 +13,19 @@ export class MaterialService {
     ){}
     
     async getAll(): Promise<MaterialEntity[]> {
-        return await this.repo.find();
+        return await this.repo.find({
+            relations: {
+                print_orders: true,
+            }
+        });
     }
 
     async getById(id: number): Promise<MaterialEntity> {
         return await this.repo.findOne({
             where: {id: id},
+            relations: {
+                print_orders: true,
+            }
         });
     }
 

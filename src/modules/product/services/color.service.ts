@@ -13,12 +13,19 @@ export class ColorService {
     ){}
 
     async getAll(): Promise<ColorEntity[]> {
-        return await this.repo.find();
+        return await this.repo.find({
+            relations: {
+                print_orders: true,
+            }
+        });
     }
 
     async getById(id: number): Promise<ColorEntity> {
         return await this.repo.findOne({
             where: {id: id},
+            relations: {
+                print_orders: true,
+            }
         });
     }
 

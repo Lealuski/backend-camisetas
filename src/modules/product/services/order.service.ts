@@ -20,6 +20,7 @@ export class OrderService {
         return await this.orderRepo.find({
             relations: {
                 customer: true,
+                print_orders: true,
             }
         });
     }
@@ -29,6 +30,7 @@ export class OrderService {
             where: { id:idOrder },
             relations: {
                 customer: true,
+                print_orders: true,
             }
         });
     }
