@@ -15,6 +15,8 @@ import { ThemeEntity } from './entities/theme.entity';
 import { ColorEntity } from './entities/color.entity';
 import { MaterialEntity } from './entities/material.entity';
 import { SizeEntity } from './entities/size.entity';
+import { PrintService } from './services/print.service';
+import { PrintController } from './controllers/print.controller';
 
 @Module({
     imports: [TypeOrmModule.forFeature([
@@ -29,11 +31,13 @@ import { SizeEntity } from './entities/size.entity';
         MaterialController, 
         SizeController, 
         ThemeController, 
-        UserController,
+        UserController, 
+        PrintController,
     ],
     providers: [
         ColorService, 
         MaterialService, 
+        PrintService,
         SizeService, 
         ThemeService, 
         UserService,

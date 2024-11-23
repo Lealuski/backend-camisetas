@@ -14,6 +14,6 @@ import { ProductModule } from './modules/product/product.module';
       synchronize: true,
     }),
     ProductModule
-  ]
+  ],
 })
 export class AppModule {}

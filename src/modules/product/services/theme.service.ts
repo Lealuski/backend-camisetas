@@ -13,12 +13,19 @@ export class ThemeService {
     ){}
 
     async getAll(): Promise<ThemeEntity[]> {
-        return await this.repo.find();
+        return await this.repo.find({
+            relations: {
+                prints: true,
+            }
+        });
     }
 
     async getById(id: number): Promise<ThemeEntity> {
         return await this.repo.findOne({
             where: {id: id},
+            relations: {
+                prints: true,
+            }
         });
     }
 
