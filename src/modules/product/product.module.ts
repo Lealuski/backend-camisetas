@@ -11,9 +11,10 @@ import { ThemeService } from './services/theme.service';
 import { UserService } from './services/user.service';
 import { UserEntity } from './entities/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ThemeEntity } from './entities/theme.entity';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([UserEntity])],
+    imports: [TypeOrmModule.forFeature([UserEntity, ThemeEntity])],
     controllers: [ColorController, MaterialController, SizeController, ThemeController, UserController],
     providers: [ColorService, MaterialService, SizeService, ThemeService, UserService],
 })

@@ -13,9 +13,9 @@ export class UserController {
         this.userServ.createUser(createUserDto)
             .then( user => {
                 response.status(HttpStatus.CREATED).json(user);
-            }).catch(() => {
+            }).catch((e) => {
                 response.status(HttpStatus.FORBIDDEN).json(
-                    {mensaje: 'Error in the creation of the user'});
+                    {mensaje: `Error in the creation of the user: ${e}`});
             });
     }
 
@@ -24,9 +24,9 @@ export class UserController {
         this.userServ.getAll()
             .then( usersList => {
                 response.status(HttpStatus.OK).json(usersList);
-            }).catch( () => {
+            }).catch( (e) => {
                 response.status(HttpStatus.FORBIDDEN).json(
-                    {mensaje: 'Error in the getting of the users'});
+                    {mensaje: `Error in the getting of the users: ${e}`});
             });
     }
 
@@ -35,9 +35,9 @@ export class UserController {
         this.userServ.getById(idUser)
             .then( user => {
                 response.status(HttpStatus.OK).json(user);
-            }).catch( () => {
+            }).catch( (e) => {
                 response.status(HttpStatus.FORBIDDEN).json(
-                    {mensaje: 'Error in the getting of the user by id'});
+                    {mensaje: `Error in the getting of the user by id: ${e}`});
             });
     }
 
@@ -46,9 +46,9 @@ export class UserController {
         this.userServ.updateUser(idUser, updateUserDto)
             .then(userUpdated => {
                 response.status(HttpStatus.OK).json(userUpdated);
-            }).catch(() => {
+            }).catch((e) => {
                 response.status(HttpStatus.FORBIDDEN).json(
-                    {mensaje: 'Error in the modification of the user'});
+                    {mensaje: `Error in the modification of the user: ${e}`});
             });
     }
 
@@ -57,9 +57,9 @@ export class UserController {
         this.userServ.deleteUser(idUser)
             .then(res => {
                 response.status(HttpStatus.OK).json(res);
-            }).catch(() => {
+            }).catch((e) => {
                 response.status(HttpStatus.FORBIDDEN).json(
-                    {mensaje: 'Error in the elimination of the user'});
+                    {mensaje: `Error in the elimination of the user: ${e}`});
             });
     }
 
