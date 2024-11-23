@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { ThemeEntity } from '../entities/theme.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { ThemeEntity } from '../entities/theme.entity';
 import { CreateThemeDto } from '../dto/create-theme-dto';
 
 @Injectable()
