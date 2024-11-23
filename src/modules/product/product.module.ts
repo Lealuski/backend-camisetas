@@ -17,6 +17,8 @@ import { MaterialEntity } from './entities/material.entity';
 import { SizeEntity } from './entities/size.entity';
 import { PrintService } from './services/print.service';
 import { PrintController } from './controllers/print.controller';
+import { ImageService } from './services/image.service';
+import { ImageController } from './controllers/image.controller';
 
 @Module({
     imports: [TypeOrmModule.forFeature([
@@ -32,7 +34,8 @@ import { PrintController } from './controllers/print.controller';
         SizeController, 
         ThemeController, 
         UserController, 
-        PrintController,
+        PrintController, 
+        ImageController,
     ],
     providers: [
         ColorService, 
@@ -40,7 +43,8 @@ import { PrintController } from './controllers/print.controller';
         PrintService,
         SizeService, 
         ThemeService, 
-        UserService,
+        UserService, 
+        ImageService,
     ],
 })
 export class ProductModule {}

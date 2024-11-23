@@ -1,6 +1,7 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { UserEntity } from "./user.entity";
 import { ThemeEntity } from "./theme.entity";
+import { ImageEntity } from "./image.entity";
 
 @Entity({name: 'prints'})
 export class PrintEntity {
@@ -33,4 +34,10 @@ export class PrintEntity {
     })
     @JoinColumn({name: 'theme_id'})
     theme: ThemeEntity;
+
+    @OneToMany(
+        () => ImageEntity,
+        (images: ImageEntity) => images.print
+    )
+    images: ImageEntity[];
 }

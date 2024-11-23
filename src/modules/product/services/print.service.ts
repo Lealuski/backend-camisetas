@@ -25,6 +25,7 @@ export class PrintService {
             relations: {
                 theme: true,
                 author: true,
+                images: true,
             }
         });
     }
@@ -35,6 +36,7 @@ export class PrintService {
             relations: {
                 theme: true,
                 author: true,
+                images: true,
             }
         });
     }
