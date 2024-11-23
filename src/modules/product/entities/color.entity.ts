@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: 'colors'})
-export class ColorEntiy {
+export class ColorEntity {
     @PrimaryGeneratedColumn()
     id: number;
 

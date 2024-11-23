@@ -4,6 +4,7 @@ import { CreateMaterialDto } from '../dto/create-material-dto';
 
 @Controller('material')
 export class MaterialController {
+    
     constructor(private service: MaterialService){}
 
     @Post()
