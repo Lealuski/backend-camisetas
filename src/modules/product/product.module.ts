@@ -24,6 +24,9 @@ import { ImageEntity } from './entities/image.entity';
 import { OrderService } from './services/order.service';
 import { OrderEntity } from './entities/order.entity';
 import { OrderController } from './controllers/order.controller';
+import { PrintOrderService } from './services/print-order.service';
+import { PrintOrderEntity } from './entities/print-order.entity';
+import { PrintOrderController } from './controllers/print-order.controller';
 
 @Module({
     imports: [TypeOrmModule.forFeature([
@@ -34,7 +37,8 @@ import { OrderController } from './controllers/order.controller';
         UserEntity,
         PrintEntity,
         ImageEntity,
-        OrderEntity
+        OrderEntity,
+        PrintOrderEntity
     ])],
     controllers: [
         ColorController, 
@@ -44,7 +48,8 @@ import { OrderController } from './controllers/order.controller';
         UserController, 
         PrintController, 
         ImageController, 
-        OrderController,
+        OrderController, 
+        PrintOrderController,
     ],
     providers: [
         ColorService, 
@@ -54,7 +59,8 @@ import { OrderController } from './controllers/order.controller';
         ThemeService, 
         UserService, 
         ImageService, 
-        OrderService,
+        OrderService, 
+        PrintOrderService,
     ],
 })
 export class ProductModule {}

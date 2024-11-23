@@ -1,5 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { UserEntity } from "./user.entity";
+import { PrintOrderEntity } from "./print-order.entity";
 
 @Entity({name: 'orders'})
 export class OrderEntity {
@@ -24,9 +25,9 @@ export class OrderEntity {
     @JoinColumn({name: 'customer_id'})
     customer: UserEntity;
 
-    // @OneToMany(
-    //     () => ImageEntity,
-    //     (images: ImageEntity) => images.print
-    // )
-    // images: ImageEntity[];
+    @OneToMany(
+        () => PrintOrderEntity,
+        (print_orders: PrintOrderEntity) => print_orders.order
+    )
+    print_orders: PrintOrderEntity[];
 }

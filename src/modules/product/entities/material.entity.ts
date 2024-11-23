@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { PrintOrderEntity } from "./print-order.entity";
 
 @Entity({name: 'materials'})
 export class MaterialEntity {
@@ -11,4 +12,9 @@ export class MaterialEntity {
     @Column('decimal', { precision: 9, scale: 2 })
     price: number;
 
+    @OneToMany(
+        () => PrintOrderEntity,
+        (print_orders: PrintOrderEntity) => print_orders.material
+    )
+    print_orders: PrintOrderEntity[];
 }

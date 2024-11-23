@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { PrintOrderEntity } from "./print-order.entity";
 
 @Entity({name: 'sizes'})
 export class SizeEntity {
@@ -7,4 +8,10 @@ export class SizeEntity {
 
     @Column()
     number: string;
+
+    @OneToMany(
+        () => PrintOrderEntity,
+        (print_orders: PrintOrderEntity) => print_orders.size
+    )
+    print_orders: PrintOrderEntity[];
 }
