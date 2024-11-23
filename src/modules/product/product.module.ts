@@ -12,10 +12,31 @@ import { UserService } from './services/user.service';
 import { UserEntity } from './entities/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ThemeEntity } from './entities/theme.entity';
+import { ColorEntity } from './entities/color.entity';
+import { MaterialEntity } from './entities/material.entity';
+import { SizeEntity } from './entities/size.entity';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([UserEntity, ThemeEntity])],
-    controllers: [ColorController, MaterialController, SizeController, ThemeController, UserController],
-    providers: [ColorService, MaterialService, SizeService, ThemeService, UserService],
+    imports: [TypeOrmModule.forFeature([
+        ColorEntity,
+        MaterialEntity,
+        SizeEntity,
+        ThemeEntity,
+        UserEntity,
+    ])],
+    controllers: [
+        ColorController, 
+        MaterialController, 
+        SizeController, 
+        ThemeController, 
+        UserController,
+    ],
+    providers: [
+        ColorService, 
+        MaterialService, 
+        SizeService, 
+        ThemeService, 
+        UserService,
+    ],
 })
 export class ProductModule {}
