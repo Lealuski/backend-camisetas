@@ -46,4 +46,19 @@ export class ColorService {
     async deleteColor(id: number): Promise<any> {
         return await this.repo.delete(id);
     }
+
+    async createColors(newColors: CreateColorDto[]): Promise<ColorEntity[]> {
+        const colorsToSave: ColorEntity[] = [];
+        for (const newColor of newColors) {
+            const newc = new ColorEntity();
+            newc.name = newColor.name;
+            newc.hexa_rgb = newColor.hexa_rgb;
+            colorsToSave.push(newc);
+        }
+        return this.repo.save(colorsToSave);
+    }    
+    
+    async deleteAll(): Promise<void> {
+        await this.repo.clear();
+    }
 }

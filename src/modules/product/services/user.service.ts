@@ -55,4 +55,23 @@ export class UserService {
         return await this.userRepo.delete(id);
     }
 
+    async createUsers(newUsers: CreateUserDto[]): Promise<UserEntity[]> {
+        const usersToSave: UserEntity[] = [];
+        for (const newUser of newUsers) {
+            const newu = new UserEntity();
+            newu.name = newUser.name;
+            newu.email = newUser.email;
+            newu.password = newUser.password;
+            newu.role = newUser.role;
+            newu.state = newUser.state;
+            newu.birthdate = newUser.birthdate;
+            usersToSave.push(newu);
+        }
+        return this.userRepo.save(usersToSave);
+    }    
+    
+    async deleteAll(): Promise<void> {
+        await this.userRepo.clear();
+    }
+
 }

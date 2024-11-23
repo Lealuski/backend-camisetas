@@ -73,7 +73,6 @@ export class OrderService {
 
     async createOrders(newOrders: CreateOrderDto[]): Promise<OrderEntity[]> {
         const ordersToSave: OrderEntity[] = [];
-    
         for (const newOrder of newOrders) {
             const customerFound = await this.userRepo.findOne({
                 where: {id: newOrder.customer_id}
@@ -81,16 +80,13 @@ export class OrderService {
             if(!customerFound){
                 throw new Error('Customer not found in creation of order');
             }
-    
             const order = new OrderEntity();
             order.state = newOrder.state;
             order.total_net_price = newOrder.total_net_price;
             order.rating = newOrder.rating;
             order.customer = customerFound;
-
             ordersToSave.push(order);
         }
-    
         return this.orderRepo.save(ordersToSave);
     }    
     

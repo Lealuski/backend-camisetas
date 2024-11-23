@@ -192,7 +192,6 @@ export class PrintOrderService {
 
     async createPrintOrders(newPrintOrders: CreatePrintOrderDto[]): Promise<PrintOrderEntity[]> {
         const printOrdersToSave: PrintOrderEntity[] = [];
-    
         for (const newPrintOrder of newPrintOrders) {
             const frontImageFound = await this.imageRepo.findOne({
                 where: {id: newPrintOrder.front_image_id}
@@ -251,10 +250,8 @@ export class PrintOrderService {
             printOrder.color = colorFound;
             printOrder.material = materialFound;
             printOrder.order = orderFound;
-
             printOrdersToSave.push(printOrder);
         }
-    
         return this.printOrderRepo.save(printOrdersToSave);
     }    
     

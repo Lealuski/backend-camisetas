@@ -3,7 +3,7 @@ import { PrintOrderService } from '../services/print-order.service';
 import { CreatePrintOrderDto } from '../dto/create-print-order-dto';
 
 @Controller('print-order')
-export class PrintOrderOrderController {
+export class PrintOrderController {
 
     constructor(private service: PrintOrderService){}
 

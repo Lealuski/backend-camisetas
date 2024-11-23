@@ -95,7 +95,6 @@ export class PrintService {
 
     async createPrints(newPrints: CreatePrintDto[]): Promise<PrintEntity[]> {
         const printsToSave: PrintEntity[] = [];
-    
         for (const newPrint of newPrints) {
             const themeFound = await this.themeRepo.findOne({
                 where: {id: newPrint.theme_id}
@@ -103,24 +102,20 @@ export class PrintService {
             if(!themeFound){
                 throw new Error('Theme not found in creation of print');
             }
-    
             const authorFound = await this.userRepo.findOne({
                 where: {id: newPrint.author_id}
             })
             if(!authorFound){
                 throw new Error('Author not found in creation of print');
             }
-    
             const print = new PrintEntity();
             print.name = newPrint.name;
             print.state = newPrint.state;
             print.description = newPrint.description;
             print.author = authorFound;
             print.theme = themeFound;
-
             printsToSave.push(print);
         }
-    
         return this.printRepo.save(printsToSave);
     }    
     

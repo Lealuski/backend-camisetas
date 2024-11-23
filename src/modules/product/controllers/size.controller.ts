@@ -61,4 +61,28 @@ export class SizeController {
                     {mensaje: `Error in the elimination of the size: ${e}`});
             });
     }
+
+    @Post('bulk')
+    createMany(@Body() dtos: CreateSizeDto[], @Res() response) {
+        this.service.createSizes(dtos)
+            .then(sizes => {
+                response.status(HttpStatus.CREATED).json(sizes);
+            })
+            .catch((e) => {
+                response.status(HttpStatus.FORBIDDEN).json(
+                    { mensaje: `Error in the creation of sizes: ${e}` }
+                );
+            });
+    }
+
+    @Delete()
+    deleteAll(@Res() response){
+        this.service.deleteAll()
+            .then(res => {
+                response.status(HttpStatus.OK).json(res);
+            }).catch((e) => {
+                response.status(HttpStatus.FORBIDDEN).json(
+                    {mensaje: `Error in the elimination of all the sizes: ${e}`});
+            });
+    }
 }

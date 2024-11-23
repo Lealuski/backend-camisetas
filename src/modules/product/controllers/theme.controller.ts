@@ -61,4 +61,28 @@ export class ThemeController {
                     {mensaje: `Error in the elimination of the theme: ${e}`});
             });
     }
+
+    @Post('bulk')
+    createMany(@Body() dtos: CreateThemeDto[], @Res() response) {
+        this.themeServ.createThemes(dtos)
+            .then(themes => {
+                response.status(HttpStatus.CREATED).json(themes);
+            })
+            .catch((e) => {
+                response.status(HttpStatus.FORBIDDEN).json(
+                    { mensaje: `Error in the creation of themes: ${e}` }
+                );
+            });
+    }
+
+    @Delete()
+    deleteAll(@Res() response){
+        this.themeServ.deleteAll()
+            .then(res => {
+                response.status(HttpStatus.OK).json(res);
+            }).catch((e) => {
+                response.status(HttpStatus.FORBIDDEN).json(
+                    {mensaje: `Error in the elimination of all the themes: ${e}`});
+            });
+    }
 }

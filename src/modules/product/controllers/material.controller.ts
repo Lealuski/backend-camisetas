@@ -61,4 +61,28 @@ export class MaterialController {
                     {mensaje: `Error in the elimination of the material: ${e}`});
             });
     }
+
+    @Post('bulk')
+    createMany(@Body() dtos: CreateMaterialDto[], @Res() response) {
+        this.service.createMaterials(dtos)
+            .then(materials => {
+                response.status(HttpStatus.CREATED).json(materials);
+            })
+            .catch((e) => {
+                response.status(HttpStatus.FORBIDDEN).json(
+                    { mensaje: `Error in the creation of materials: ${e}` }
+                );
+            });
+    }
+
+    @Delete()
+    deleteAll(@Res() response){
+        this.service.deleteAll()
+            .then(res => {
+                response.status(HttpStatus.OK).json(res);
+            }).catch((e) => {
+                response.status(HttpStatus.FORBIDDEN).json(
+                    {mensaje: `Error in the elimination of all the materials: ${e}`});
+            });
+    }
 }

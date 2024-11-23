@@ -79,7 +79,6 @@ export class ImageService {
 
     async createImages(newImages: CreateImageDto[]): Promise<ImageEntity[]> {
         const imagesToSave: ImageEntity[] = [];
-    
         for (const newImage of newImages) {
             const printFound = await this.printRepo.findOne({
                 where: {id: newImage.print_id}
@@ -87,16 +86,13 @@ export class ImageService {
             if(!printFound){
                 throw new Error('Print not found in creation of images');
             }
-    
             const image = new ImageEntity();
             image.file_url = newImage.file_url;
             image.location = newImage.location;
             image.sales_number = newImage.sales_number;
             image.print = printFound;
-
             imagesToSave.push(image);
         }
-    
         return this.imageRepo.save(imagesToSave);
     }    
     

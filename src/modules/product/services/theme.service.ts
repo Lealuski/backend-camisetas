@@ -44,4 +44,18 @@ export class ThemeService {
     async deleteTheme(id: number): Promise<any> {
         return await this.repo.delete(id);
     }
+
+    async createThemes(newThemes: CreateThemeDto[]): Promise<ThemeEntity[]> {
+        const themesToSave: ThemeEntity[] = [];
+        for (const newTheme of newThemes) {
+            const newt = new ThemeEntity();
+            newt.name = newTheme.name;
+            themesToSave.push(newt);
+        }
+        return this.repo.save(themesToSave);
+    }    
+    
+    async deleteAll(): Promise<void> {
+        await this.repo.clear();
+    }
 }

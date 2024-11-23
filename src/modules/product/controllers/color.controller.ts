@@ -61,4 +61,28 @@ export class ColorController {
                     {mensaje: `Error in the elimination of the color: ${e}`});
             });
     }
+
+    @Post('bulk')
+    createMany(@Body() dtos: CreateColorDto[], @Res() response) {
+        this.service.createColors(dtos)
+            .then(colors => {
+                response.status(HttpStatus.CREATED).json(colors);
+            })
+            .catch((e) => {
+                response.status(HttpStatus.FORBIDDEN).json(
+                    { mensaje: `Error in the creation of colors: ${e}` }
+                );
+            });
+    }
+
+    @Delete()
+    deleteAll(@Res() response){
+        this.service.deleteAll()
+            .then(res => {
+                response.status(HttpStatus.OK).json(res);
+            }).catch((e) => {
+                response.status(HttpStatus.FORBIDDEN).json(
+                    {mensaje: `Error in the elimination of all the colors: ${e}`});
+            });
+    }
 }

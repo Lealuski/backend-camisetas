@@ -44,4 +44,18 @@ export class SizeService {
     async deleteSize(id: number): Promise<any> {
         return await this.repo.delete(id);
     }
+
+    async createSizes(newSizes: CreateSizeDto[]): Promise<SizeEntity[]> {
+        const sizesToSave: SizeEntity[] = [];
+        for (const newSize of newSizes) {
+            const news = new SizeEntity();
+            news.number = newSize.number;
+            sizesToSave.push(news);
+        }
+        return this.repo.save(sizesToSave);
+    }    
+    
+    async deleteAll(): Promise<void> {
+        await this.repo.clear();
+    }
 }

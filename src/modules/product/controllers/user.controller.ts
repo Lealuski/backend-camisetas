@@ -63,4 +63,28 @@ export class UserController {
             });
     }
 
+    @Post('bulk')
+    createMany(@Body() dtos: CreateUserDto[], @Res() response) {
+        this.userServ.createUsers(dtos)
+            .then(users => {
+                response.status(HttpStatus.CREATED).json(users);
+            })
+            .catch((e) => {
+                response.status(HttpStatus.FORBIDDEN).json(
+                    { mensaje: `Error in the creation of users: ${e}` }
+                );
+            });
+    }
+
+    @Delete()
+    deleteAll(@Res() response){
+        this.userServ.deleteAll()
+            .then(res => {
+                response.status(HttpStatus.OK).json(res);
+            }).catch((e) => {
+                response.status(HttpStatus.FORBIDDEN).json(
+                    {mensaje: `Error in the elimination of all the users: ${e}`});
+            });
+    }
+
 }

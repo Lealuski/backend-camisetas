@@ -46,4 +46,19 @@ export class MaterialService {
     async deleteMaterial(id: number): Promise<any> {
         return await this.repo.delete(id);
     }
+
+    async createMaterials(newMaterials: CreateMaterialDto[]): Promise<MaterialEntity[]> {
+        const materialsToSave: MaterialEntity[] = [];
+        for (const newMaterial of newMaterials) {
+            const newm = new MaterialEntity();
+            newm.name = newMaterial.name;
+            newm.price = newMaterial.price;
+            materialsToSave.push(newm);
+        }
+        return this.repo.save(materialsToSave);
+    }    
+    
+    async deleteAll(): Promise<void> {
+        await this.repo.clear();
+    }
 }
