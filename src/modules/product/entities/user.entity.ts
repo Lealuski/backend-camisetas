@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { PrintEntity } from "./print.entity";
+import { OrderEntity } from "./order.entity";
 
 @Entity({name: 'users'})
 export class UserEntity {
@@ -30,4 +31,9 @@ export class UserEntity {
     )
     prints: PrintEntity[];
     
+    @OneToMany(
+        () => OrderEntity,
+        (orders: OrderEntity) => orders.customer
+    )
+    orders: OrderEntity[];
 }
