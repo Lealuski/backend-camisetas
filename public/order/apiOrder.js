@@ -1,11 +1,10 @@
 const PUERTO = '3000';
 const HOST = `http://localhost:${PUERTO}/`;
-const URL = 'color'; //url del controlador de la api
+const URL = 'order'; //url del controlador de la api
 const BULK = 'bulk'; //url del controlador de la api
-const NAME = 'color'; //nombre de la api
+const NAME = 'order'; //nombre de la api
 
-// Obtener todos los colores
-export const getAllColors = async () => {
+export const getAllOrders = async () => {
     try {
         const resp = await fetch(`${HOST}${URL}`);
         return await resp.json();
@@ -15,8 +14,7 @@ export const getAllColors = async () => {
     }
 }
 
-// Obtener un color por ID
-export const getColorById = async (id) => {
+export const getOrderById = async (id) => {
     try {
         const resp = await fetch(`${HOST}${URL}/${id}`);
         return await resp.json();
@@ -26,15 +24,14 @@ export const getColorById = async (id) => {
     }
 };
 
-// Crear un nuevo color (POST)
-export const createColor = async (colorData) => {
+export const createOrder = async (data) => {
     try {
         const resp = await fetch(`${HOST}${URL}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(colorData),
+            body: JSON.stringify(data),
         });
         return await resp.json();
     } catch (error) {
@@ -43,15 +40,14 @@ export const createColor = async (colorData) => {
     }
 };
 
-// Crear muchos colores (POST)
-export const createColors = async (colorsData) => {
+export const createOrders = async (data) => {
     try {
         const resp = await fetch(`${HOST}${URL}${BULK}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(colorsData),
+            body: JSON.stringify(data),
         });
         return await resp.json();
     } catch (error) {
@@ -60,16 +56,14 @@ export const createColors = async (colorsData) => {
     }
 };
 
-
-// Actualizar un color (PUT)
-export const updateColor = async (id, colorData) => {
+export const updateOrder = async (id, data) => {
     try {
         const resp = await fetch(`${HOST}${URL}/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(colorData),
+            body: JSON.stringify(data),
         });
         return await resp.json();
     } catch (error) {
@@ -78,8 +72,7 @@ export const updateColor = async (id, colorData) => {
     }
 };
 
-// Eliminar un color por ID (DELETE)
-export const deleteColorById = async (id) => {
+export const deleteOrderById = async (id) => {
     try {
         const resp = await fetch(`${HOST}${URL}/${id}`, {
             method: 'DELETE',
@@ -91,9 +84,7 @@ export const deleteColorById = async (id) => {
     }
 };
 
-
-// Eliminar todos los colores (DELETE)
-export const deleteColors = async () => {
+export const deleteOrders = async () => {
     try {
         const resp = await fetch(`${HOST}${URL}`, {
             method: 'DELETE',
