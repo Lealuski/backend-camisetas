@@ -1,0 +1,81 @@
+:root {
+    --primary-color: #001a57;
+    --primary-color-hover: #424242;
+    --primary-color-light-hover: #2a4481;
+    --secondary-color: #82898f;
+    /* griss: dcd6eb */
+    --font-color-normal: #424242;
+    --font-color-light: #ffffff;
+}
+
+body {
+    /* Cambiada a una fuente juvenil */
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Fondo amarillo suave */
+    background-color: var(--secondary-color);
+    /* Texto gris oscuro */
+    color: var(--font-color-normal);
+}
+
+header {
+    /* Naranja brillante para el fondo */
+    background-color: var(--primary-color);
+    /* Texto blanco */
+    color: var(--font-color-light);
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    font-size: 50px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.color-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.color-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 1px solid #000;
+}
+.color-details {
+    font-family: Arial, sans-serif;
+}
+.color-details span {
+    display: block;
+}
+
+.formulario-crud, .colors {
+    /* Fondo blanco para los filtros */
+    background-color: var(--font-color-light);
+    padding: 20px;
+    margin: 20px;
+    /* Bordes redondeados */
+    border-radius: 10px;
+    /* Sombra suave */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-crud select,
+.formulario-crud input {
+    width: 100%;
+    padding: 3px;
+    margin: 10px 0;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+}

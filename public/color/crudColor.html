@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Colors</title>
+    <link rel="stylesheet" href="styles-color.css">
+</head>
+<body>
+    <header>
+        <h1>Colores</h1>
+    </header>
+
+    <!-- Formulario -->
+    <section class="formulario-crud">
+        <h2>Crear</h2>
+        <form id="colorForm">
+            <!-- Name -->
+            <label for="nameInput">Nombre:</label>
+            <input type="text" id="nameInput" name="name" placeholder="Nombre del color" required>
+            
+            <!-- Codigo hexadecimal de color -->
+            <label for="hexaRgbInput">Color hexadecimal:</label>
+            <input type="color" id="hexaRgbInput" name="hexaRgb">
+
+            <button type="submit" id="submitColor">Guardar</button>
+        </form>
+    </section>
+
+    <!-- Lista de registros -->
+    <section class="colors">
+        <div class="color-list">
+            <!-- Aquí se llenará dinámicamente con JavaScript -->
+        </div>
+    </section>
+
+    <script type="module" src="scriptColor.js"></script>
+    <script type="module" src="apiColor.js"></script>
+</body>
+</html>
